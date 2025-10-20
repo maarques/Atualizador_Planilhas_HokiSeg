@@ -39,7 +39,7 @@ Clone o repositório:
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
 Crie e ative um ambiente virtual:
-
+```
 ```Bash
 
 python -m venv venv
