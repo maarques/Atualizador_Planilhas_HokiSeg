@@ -1,7 +1,16 @@
-🤖 Atualizador de planilhas com analítico de pagamentos de comissões
-Ferramenta com interface gráfica para automatizar o processo de leitura de analíticos de comissão em PDF (ex: Porto Seguro(A ideia é sempre atualizar o código para ler analítico de outras seguradoras também)) e inseri-los de forma consolidada na Planilha Financeira HokiSeg.
+<div align="center">
 
-✨ Funcionalidades Principais
+🤖 Automacão de Comissões HokiSeg 🤖
+</div>
+
+<div align="center"> <img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python"> <img src="https://img.shields.io/badge/Pandas-2.0-purple?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas"> <img src="https://img.shields.io/badge/OpenPyXL-3.1-green?style=for-the-badge&logo=microsoftexcel&logoColor=white" alt="OpenPyXL"> <img src="https://img.shields.io/badge/Tkinter-GUI-orange?style=for-the-badge&logo=python&logoColor=white" alt="Tkinter"> <img src="https://img.shields.io/badge/PyInstaller-5.13-gray?style=for-the-badge&logo=windowsterminal&logoColor=white" alt="PyInstaller"> </div>
+
+<div align="center"> <h3>Status: 🟢 Concluído 🟢</h3> </div>
+
+Ferramenta com interface gráfica para automatizar o processo de leitura de extratos de comissão em PDF (Porto Seguro) e inseri-los de forma consolidada na Planilha Financeira HokiSeg.
+
+<div align="center"> <h2>✨ Funcionalidades Principais ✨</h2> </div>
+
 Interface Gráfica Simples: Permite que qualquer usuário selecione o PDF de origem e a planilha de destino.
 
 Leitura Inteligente de PDF: Extrai dados tabulares complexos dos extratos de comissão.
@@ -14,7 +23,8 @@ Atualização Segura: Adiciona os novos dados ao final da planilha Excel, sem ap
 
 Portabilidade: O projeto é empacotado em um único arquivo .exe que roda em qualquer computador Windows sem precisar instalar Python.
 
-🚀 Como Usar (Para Usuários)
+<div align="center"> <h2>🚀 Como Usar (Para Usuários) 🚀</h2> </div>
+
 A aplicação foi desenhada para ser o mais simples possível.
 
 Execute o arquivo AutomacaoHokiSeg.exe.
@@ -29,7 +39,8 @@ Aguarde a barra de log mostrar a mensagem de sucesso.
 
 Pronto! Um novo arquivo (ex: Planilha financeira out-2025_ATUALIZADA.xlsx) será salvo na mesma pasta da planilha original, contendo os novos dados.
 
-🔧 Como Executar (Para Desenvolvedores)
+<div align="center"> <h2>🔧 Como Executar (Para Desenvolvedores) 🔧</h2> </div>
+
 Se você quiser rodar o projeto a partir do código-fonte para fazer melhorias:
 
 Clone o repositório:
@@ -57,7 +68,7 @@ Execute a aplicação:
 ```Bash
 
 python main.py
-📦 Para gerar um novo .exe
+<div align="center"> <h3>📦 Para gerar um novo .exe 📦</h3> </div>
 ```
 Use o PyInstaller após instalar as dependências:
 
@@ -65,10 +76,10 @@ Use o PyInstaller após instalar as dependências:
 
 # Comando para gerar o .exe único e sem console
 pyinstaller --onefile --noconsole --name="AutomacaoHokiSeg" main.py
-O executável final estará na pasta dist/.
+# O executável final estará na pasta dist/.
 ```
+<div align="center"> <h2>⚙️ Regras de Negócio Implementadas ⚙️</h2> </div>
 
-⚙️ Regras de Negócio Implementadas
 Este script contém lógicas de negócio específicas para o processo da HokiSeg:
 
 Fonte de Dados: Extrato Analítico de Pagamentos de Comissões da Porto Seguro (PDF).
@@ -109,13 +120,18 @@ Valor Comissão: É somado (sum) e arredondado para cima (math.ceil) ao centavo 
 
 Porcentagem (Taxa): A maior taxa (max) do grupo é a que prevalece.
 
-📂 Estrutura do Projeto
+<div align="center"> <h2>📂 Estrutura do Projeto 📂</h2> </div>
+
 O código é separado por responsabilidades para facilitar a manutenção:
-```
+
 AutomacaoHokiSeg/
 ├── .gitignore         # Ignora arquivos desnecessários (venv, build, dist)
 ├── main.py            # Ponto de entrada: Apenas inicia a aplicação
 ├── ui.py              # Contém toda a lógica da interface gráfica (Tkinter)
 ├── processing.py      # Contém toda a lógica de negócio (Pandas, PdfPlumber, OpenPyXL)
 └── requirements.txt   # Lista de dependências do projeto
-```
+<div align="center">
+
+<div align="center">
+
+</div>
