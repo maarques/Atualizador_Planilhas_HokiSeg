@@ -1,6 +1,6 @@
 <div align="center">
 
-## **🤖 Atualizador de Planilhas HokiSeg 🤖**
+# **🤖 Atualizador de Planilhas HokiSeg 🤖**
 </div>
 
 <div align="center"> <img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python"> <img src="https://img.shields.io/badge/Pandas-2.0-purple?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas"> <img src="https://img.shields.io/badge/OpenPyXL-3.1-green?style=for-the-badge&logo=microsoftexcel&logoColor=white" alt="OpenPyXL"> <img src="https://img.shields.io/badge/Tkinter-GUI-orange?style=for-the-badge&logo=python&logoColor=white" alt="Tkinter"> <img src="https://img.shields.io/badge/PyInstaller-5.13-gray?style=for-the-badge&logo=windowsterminal&logoColor=white" alt="PyInstaller"> </div>
