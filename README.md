@@ -1,0 +1,1 @@
+# Atualizador_Planlinhas_HokiSeg
