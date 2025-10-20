@@ -1,13 +1,11 @@
 <div align="center">
 
-🤖 Automacão de Comissões HokiSeg 🤖
+## **🤖 Atualizador de Planilhas HokiSeg 🤖**
 </div>
 
 <div align="center"> <img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python"> <img src="https://img.shields.io/badge/Pandas-2.0-purple?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas"> <img src="https://img.shields.io/badge/OpenPyXL-3.1-green?style=for-the-badge&logo=microsoftexcel&logoColor=white" alt="OpenPyXL"> <img src="https://img.shields.io/badge/Tkinter-GUI-orange?style=for-the-badge&logo=python&logoColor=white" alt="Tkinter"> <img src="https://img.shields.io/badge/PyInstaller-5.13-gray?style=for-the-badge&logo=windowsterminal&logoColor=white" alt="PyInstaller"> </div>
 
-<div align="center"> <h3>Status: 🟢 Concluído 🟢</h3> </div>
-
-Ferramenta com interface gráfica para automatizar o processo de leitura de extratos de comissão em PDF (Porto Seguro) e inseri-los de forma consolidada na Planilha Financeira HokiSeg.
+Ferramenta com interface gráfica para ler analíticos de pagamento de comissões em PDF (ex: Porto Seguro (A ideia é sempre atualizar o projeto para poder ler mais analíticos de seguradoras diferentes)) e inseri-los de forma consolidada na Planilha Financeira HokiSeg.
 
 <div align="center"> <h2>✨ Funcionalidades Principais ✨</h2> </div>
 
@@ -123,13 +121,14 @@ Porcentagem (Taxa): A maior taxa (max) do grupo é a que prevalece.
 <div align="center"> <h2>📂 Estrutura do Projeto 📂</h2> </div>
 
 O código é separado por responsabilidades para facilitar a manutenção:
-
+```
 AutomacaoHokiSeg/
 ├── .gitignore         # Ignora arquivos desnecessários (venv, build, dist)
 ├── main.py            # Ponto de entrada: Apenas inicia a aplicação
 ├── ui.py              # Contém toda a lógica da interface gráfica (Tkinter)
 ├── processing.py      # Contém toda a lógica de negócio (Pandas, PdfPlumber, OpenPyXL)
 └── requirements.txt   # Lista de dependências do projeto
+```
 <div align="center">
 
 <div align="center">
