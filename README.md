@@ -38,23 +38,27 @@ Clone o repositório:
 
 git clone https://github.com/seu-usuario/seu-repositorio.git
 cd seu-repositorio
-Crie e ative um ambiente virtual:
 ```
+Crie e ative um ambiente virtual:
+
 ```Bash
 
 python -m venv venv
 .\venv\Scripts\activate
+```
 Instale as dependências:
 
 ```Bash
 
 pip install -r requirements.txt
+```
 Execute a aplicação:
 
 ```Bash
 
 python main.py
 📦 Para gerar um novo .exe
+```
 Use o PyInstaller após instalar as dependências:
 
 ```Bash
@@ -62,6 +66,7 @@ Use o PyInstaller após instalar as dependências:
 # Comando para gerar o .exe único e sem console
 pyinstaller --onefile --noconsole --name="AutomacaoHokiSeg" main.py
 O executável final estará na pasta dist/.
+```
 
 ⚙️ Regras de Negócio Implementadas
 Este script contém lógicas de negócio específicas para o processo da HokiSeg:
