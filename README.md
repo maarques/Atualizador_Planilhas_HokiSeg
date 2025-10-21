@@ -26,15 +26,18 @@ Uma ferramenta com **interface gráfica** para ler analíticos de pagamento de c
 
 ---
 
-## 🛠️ Como Executar (para desenvolvedores)  
-Se você quiser rodar o código-fonte e fazer melhorias:  
-```bash
+## 🛠️ Como Executar (para desenvolvedores)
+Se você quiser rodar o código-fonte e fazer melhorias:
+
+Bash
+
 # Clonar o repositório
 git clone https://github.com/maarques/Atualizador_Planilhas_HokiSeg.git
 cd Atualizador_Planilhas_HokiSeg
 
 # Criar e ativar ambiente virtual
 python -m venv venv
+
 # Windows
 venv\Scripts\activate
 # Unix/macOS
@@ -46,69 +49,56 @@ pip install -r requirements.txt
 # Executar a aplicação
 python main.py
 Para gerar o executável (.exe no Windows)
-bash
-Copiar código
-pyinstaller --onefile --noconsole --name="AutomacaoHokiSeg" main.py
-O arquivo AutomacaoHokiSeg.exe será criado na pasta dist/.
+Use o PyInstaller. O comando abaixo gera um único arquivo executável sem o terminal de console.
 
-⚙️ Regras de Negócio Implementadas
-Fonte de dados: extrato analítico de pagamentos de comissões da Porto Seguro (formato PDF).
+Bash
 
-Destino dos dados: planilha Excel (Planilha financeira … .xlsx), aba “Comissão”.
+# O --windowed (ou --noconsole) é importante para aplicações de GUI
+pyinstaller --onefile --windowed --name="AtualizadorHokiSeg_v12" main.py
+O arquivo AtualizadorHokiSeg_v12.exe será criado na pasta dist/.
 
-Filtro de exclusão: linhas contendo o texto “PIC – Bonus Mensal” são ignoradas.
+⚙️ Lógica de Processamento (Multi-Parser)
+O sistema agora é capaz de processar múltiplos layouts de PDF, um para cada seguradora.
 
-Mapeamento de colunas (PDF → Excel):
+Destino dos dados: Planilha Excel (Planilha financeira … .xlsx), aba “Comissão”.
 
-Apl/Prop. → Coluna B (Apólice)
+Fontes de Dados (Parsers)
+O sistema seleciona o parser correto com base na escolha do usuário na interface.
 
-Prêmio → Coluna C (Valor)
+1. Porto Seguro
+Fonte: Extrato analítico de pagamentos de comissões (PDF).
 
-Histórico → Coluna E (Cliente)
+Filtro de exclusão: Linhas contendo o texto “PIC – Bonus Mensal” são ignoradas.
 
-Marca → Coluna F (Seguradora)
+Regras Específicas: A coluna "Parcela a Receber" é fixada com o valor "12" durante a extração.
 
-Parcela a Receber (fixo = 12) → Coluna G
+2. Amil
+Fonte: Extrato de comissão (PDF).
 
-Parc. → Coluna H
+Lógica: Utiliza RegEx (Expressões Regulares) para identificar e extrair dados de múltiplos "blocos de contrato" dentro da mesma página do PDF.
 
-Data → Coluna I (Dt. Pagamento)
+Dados Extraídos: Cliente, Apólice, Parcela, Dt. Pagamento, Prêmio, Taxa (%), e Comissão.
 
-Comissão → Coluna J (Valor Comissão)
+Agrupamento (Pós-processamento)
+Após a extração de todas as fontes, os dados são unificados e agrupados por Cliente + Apólice + Parcela. Durante o agrupamento:
 
-Taxa → Coluna K (Porcentagem)
+Valor (Prêmio): é somado (sum).
 
-Fixos (“Pago”, “Vida Presente”, “Calina”) → Colunas L, M, N
+Valor Comissão: é somado (sum) e arredondado para cima ao centavo.
 
-Agrupamento: os dados são agrupados por Cliente + Apólice + Parcela.
-
-Valor (Prêmio): somado (sum).
-
-Valor Comissão: somado (sum) e arredondado para cima ao centavo.
-
-Porcentagem (Taxa): prevalece a maior taxa do grupo (max).
+Porcentagem (Taxa): prevalece a maior taxa (max) encontrada no grupo.
 
 🧩 Estrutura do Projeto
-bash
-Copiar código
+A estrutura foi atualizada para suportar múltiplos parsers de forma modular.
+
 Atualizador_Planilhas_HokiSeg/
-├── .gitignore           # Ignora arquivos da build, venv, dist etc.
+├── .gitignore
 ├── main.py              # Ponto de entrada: inicia a aplicação
 ├── ui.py                # Interface gráfica (Tkinter)
-├── processing.py        # Lógica de negócio: pandas, pdfplumber, openpyxl
+├── processing.py        # Lógica central: orquestra o UI, os parsers e o processamento
+├── data_processing.py   # Lógica de negócio: agrupamento com Pandas, escrita no Excel
+├── parsers/             # Módulo contendo todos os parsers de seguradoras
+│   ├── __init__.py
+│   ├── amil_parser.py   # Parser específico da Amil
+│   └── porto_parser.py  # Parser específico da Porto Seguro
 └── requirements.txt     # Dependências do projeto
-
-
-## ✅ *Contribuições & Melhorias Futuras*
-Contribuições são bem-vindas! Algumas ideias para evolução:
-
-Suporte a outros formatos de analítico de seguradoras diferentes da Porto Seguro e Amil.
-
-Reconhecimento automático de colunas em PDF com layout variável.
-
-Tradução/localização para outros idiomas.
-
-Interface web para upload de arquivos e processamento online.
-
-Versão multiplataforma (Windows + macOS + Linux) empacotada.
-
