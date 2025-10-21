@@ -29,7 +29,7 @@ Uma ferramenta com **interface gráfica** para ler analíticos de pagamento de c
 ## 🛠️ Como Executar (para desenvolvedores)
 Se você quiser rodar o código-fonte e fazer melhorias:
 
-Bash
+```Bash
 
 # Clonar o repositório
 git clone https://github.com/maarques/Atualizador_Planilhas_HokiSeg.git
@@ -48,16 +48,18 @@ pip install -r requirements.txt
 
 # Executar a aplicação
 python main.py
-Para gerar o executável (.exe no Windows)
+```
+### Para gerar o executável (.exe no Windows)
 Use o PyInstaller. O comando abaixo gera um único arquivo executável sem o terminal de console.
 
-Bash
+```Bash
 
 # O --windowed (ou --noconsole) é importante para aplicações de GUI
 pyinstaller --onefile --windowed --name="AtualizadorHokiSeg_v12" main.py
-O arquivo AtualizadorHokiSeg_v12.exe será criado na pasta dist/.
+# O arquivo AtualizadorHokiSeg_v12.exe será criado na pasta dist/.
+```
 
-⚙️ Lógica de Processamento (Multi-Parser)
+## ⚙️ Lógica de Processamento (Multi-Parser)
 O sistema agora é capaz de processar múltiplos layouts de PDF, um para cada seguradora.
 
 Destino dos dados: Planilha Excel (Planilha financeira … .xlsx), aba “Comissão”.
@@ -88,9 +90,9 @@ Valor Comissão: é somado (sum) e arredondado para cima ao centavo.
 
 Porcentagem (Taxa): prevalece a maior taxa (max) encontrada no grupo.
 
-🧩 Estrutura do Projeto
+## 🧩 Estrutura do Projeto
 A estrutura foi atualizada para suportar múltiplos parsers de forma modular.
-
+```
 Atualizador_Planilhas_HokiSeg/
 ├── .gitignore
 ├── main.py              # Ponto de entrada: inicia a aplicação
@@ -102,3 +104,4 @@ Atualizador_Planilhas_HokiSeg/
 │   ├── amil_parser.py   # Parser específico da Amil
 │   └── porto_parser.py  # Parser específico da Porto Seguro
 └── requirements.txt     # Dependências do projeto
+```
