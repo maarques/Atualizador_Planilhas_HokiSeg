@@ -1,7 +1,7 @@
 # Atualizador de Planilhas HokiSeg  
 ![Python](https://img.shields.io/badge/python-3.8%2B-blue) ![Pandas](https://img.shields.io/badge/pandas-1.0%2B-blueviolet) ![OpenPyXL](https://img.shields.io/badge/openpyxl-3.0%2B-green) ![Tkinter](https://img.shields.io/badge/tkinter-GUI-orange)  
 
-Uma ferramenta com **interface gráfica** para ler analíticos de pagamento de comissões em PDF (inicialmente para Porto Seguro) e inseri-los de forma consolidada numa planilha Excel de controle financeiro da HokiSeg.
+Uma ferramenta com **interface gráfica** para ler analíticos de pagamento de comissões em PDF (inicialmente para Porto Seguro e Amil) e inseri-los de forma consolidada numa planilha Excel de controle financeiro da HokiSeg.
 
 ---
 
@@ -19,8 +19,9 @@ Uma ferramenta com **interface gráfica** para ler analíticos de pagamento de c
 1. Execute o arquivo `.exe` (ex: `AutomacaoHokiSeg.exe`).  
 2. Na tela:  
    - Clique em **„1. Selecionar PDF”** e escolha o extrato de comissão em PDF.  
-   - Clique em **„2. Selecionar Planilha”** e escolha o arquivo da planilha (ex: `Planilha Financeira out-2025.xlsx`).  
-   - Clique em **„3. Processar e Atualizar Planilha”**.  
+   - Clique em **„2. Selecionar Planilha”** e escolha o arquivo da planilha (ex: `Planilha Financeira out-2025.xlsx`).
+   - Clique em **„3. Escolha a Seguradora”**.
+   - Clique em **„4. Processar e Atualizar Planilha”**.  
 3. Aguarde a barra de log exibir a mensagem de sucesso.  
 4. Pronto! Um novo arquivo será salvo (ex: `Planilha_financeira_out-2025_ATUALIZADA.xlsx`) na mesma pasta da planilha original.
 
