@@ -89,7 +89,7 @@ Valor Comissão: somado (sum) e arredondado para cima ao centavo.
 Porcentagem (Taxa): prevalece a maior taxa do grupo (max).
 
 🧩 Estrutura do Projeto
-```bash
+bash
 Copiar código
 Atualizador_Planilhas_HokiSeg/
 ├── .gitignore           # Ignora arquivos da build, venv, dist etc.
@@ -97,7 +97,9 @@ Atualizador_Planilhas_HokiSeg/
 ├── ui.py                # Interface gráfica (Tkinter)
 ├── processing.py        # Lógica de negócio: pandas, pdfplumber, openpyxl
 └── requirements.txt     # Dependências do projeto
-✅ Contribuições & Melhorias Futuras
+
+
+## ✅ *Contribuições & Melhorias Futuras*
 Contribuições são bem-vindas! Algumas ideias para evolução:
 
 Suporte a outros formatos de analítico de seguradoras diferentes da Porto Seguro e Amil.
