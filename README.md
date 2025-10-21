@@ -101,7 +101,7 @@ Atualizador_Planilhas_HokiSeg/
 ├── data_processing.py   # Lógica de negócio: agrupamento com Pandas, escrita no Excel
 ├── parsers/             # Módulo contendo todos os parsers de seguradoras
 │   ├── __init__.py
-│   ├── amil_parser.py   # Parser específico da Amil
-│   └── porto_parser.py  # Parser específico da Porto Seguro
+│   ├── amil.py   # Parser específico da Amil
+│   └── porto_seguro.py  # Parser específico da Porto Seguro
 └── requirements.txt     # Dependências do projeto
 ```
