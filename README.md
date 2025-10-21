@@ -1,136 +1,112 @@
-<div align="center">
+# Atualizador de Planilhas HokiSeg  
+![Python](https://img.shields.io/badge/python-3.8%2B-blue) ![Pandas](https://img.shields.io/badge/pandas-1.0%2B-blueviolet) ![OpenPyXL](https://img.shields.io/badge/openpyxl-3.0%2B-green) ![Tkinter](https://img.shields.io/badge/tkinter-GUI-orange)  
 
-# **🤖 Atualizador de Planilhas HokiSeg 🤖**
-</div>
+Uma ferramenta com **interface gráfica** para ler analíticos de pagamento de comissões em PDF (inicialmente para Porto Seguro) e inseri-los de forma consolidada numa planilha Excel de controle financeiro da HokiSeg.
 
-<div align="center"> <img src="https://img.shields.io/badge/Python-3.10%2B-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python"> <img src="https://img.shields.io/badge/Pandas-2.0-purple?style=for-the-badge&logo=pandas&logoColor=white" alt="Pandas"> <img src="https://img.shields.io/badge/OpenPyXL-3.1-green?style=for-the-badge&logo=microsoftexcel&logoColor=white" alt="OpenPyXL"> <img src="https://img.shields.io/badge/Tkinter-GUI-orange?style=for-the-badge&logo=python&logoColor=white" alt="Tkinter"> <img src="https://img.shields.io/badge/PyInstaller-5.13-gray?style=for-the-badge&logo=windowsterminal&logoColor=white" alt="PyInstaller"> </div>
+---
 
-Ferramenta com interface gráfica para ler analíticos de pagamento de comissões em PDF (ex: Porto Seguro (A ideia é sempre atualizar o projeto para poder ler mais analíticos de seguradoras diferentes)) e inseri-los de forma consolidada na Planilha Financeira HokiSeg.
+## ✨ Funcionalidades Principais  
+- Interface gráfica simples: qualquer usuário seleciona o PDF de origem e a planilha de destino.  
+- Leitura inteligente de PDF: extração de dados tabulares complexos de extratos de comissão.  
+- Processamento e consolidação: agrupa automaticamente lançamentos duplicados (por exemplo, o mesmo cliente aparece várias vezes no PDF) e soma seus valores de prêmio e comissão.  
+- Regras de negócio embutidas: aplica filtros específicos (por exemplo: ignora linhas “PIC – Bonus Mensal”) e lógicas de arredondamento.  
+- Atualização segura: adiciona os novos dados ao final da planilha Excel, **sem apagar ou sobrescrever** dados já existentes.  
+- Portabilidade: o projeto pode ser empacotado num único arquivo `.exe` para execução em Windows sem necessidade de instalar Python.
 
-<div align="center"> <h2>✨ Funcionalidades Principais ✨</h2> </div>
+---
 
-Interface Gráfica Simples: Permite que qualquer usuário selecione o PDF de origem e a planilha de destino.
+## 🧭 Como Usar (para usuários)  
+1. Execute o arquivo `.exe` (ex: `AutomacaoHokiSeg.exe`).  
+2. Na tela:  
+   - Clique em **„1. Selecionar PDF”** e escolha o extrato de comissão em PDF.  
+   - Clique em **„2. Selecionar Planilha”** e escolha o arquivo da planilha (ex: `Planilha Financeira out-2025.xlsx`).  
+   - Clique em **„3. Processar e Atualizar Planilha”**.  
+3. Aguarde a barra de log exibir a mensagem de sucesso.  
+4. Pronto! Um novo arquivo será salvo (ex: `Planilha_financeira_out-2025_ATUALIZADA.xlsx`) na mesma pasta da planilha original.
 
-Leitura Inteligente de PDF: Extrai dados tabulares complexos dos extratos de comissão.
+---
 
-Processamento e Consolidação: Agrupa automaticamente lançamentos duplicados (ex: "Markus"), somando seus valores de prêmio e comissão.
+## 🛠️ Como Executar (para desenvolvedores)  
+Se você quiser rodar o código-fonte e fazer melhorias:  
+```bash
+# Clonar o repositório
+git clone https://github.com/maarques/Atualizador_Planilhas_HokiSeg.git
+cd Atualizador_Planilhas_HokiSeg
 
-Regras de Negócio Embutidas: Aplica filtros específicos (ex: ignora "PIC - Bonus Mensal") e lógicas de arredondamento.
-
-Atualização Segura: Adiciona os novos dados ao final da planilha Excel, sem apagar ou sobrescrever dados existentes.
-
-Portabilidade: O projeto é empacotado em um único arquivo .exe que roda em qualquer computador Windows sem precisar instalar Python.
-
-<div align="center"> <h2>🚀 Como Usar (Para Usuários) 🚀</h2> </div>
-
-A aplicação foi desenhada para ser o mais simples possível.
-
-Execute o arquivo AutomacaoHokiSeg.exe.
-
-Na tela principal, clique em "1. Selecionar PDF" e escolha o extrato de comissão baixado.
-
-Clique em "2. Selecionar Planilha" e escolha o arquivo Planilha financeira out-2025.xlsx (ou a versão mais atual).
-
-Clique no botão verde "3. Processar e Atualizar Planilha".
-
-Aguarde a barra de log mostrar a mensagem de sucesso.
-
-Pronto! Um novo arquivo (ex: Planilha financeira out-2025_ATUALIZADA.xlsx) será salvo na mesma pasta da planilha original, contendo os novos dados.
-
-<div align="center"> <h2>🔧 Como Executar (Para Desenvolvedores) 🔧</h2> </div>
-
-Se você quiser rodar o projeto a partir do código-fonte para fazer melhorias:
-
-Clone o repositório:
-
-```Bash
-
-git clone https://github.com/seu-usuario/seu-repositorio.git
-cd seu-repositorio
-```
-Crie e ative um ambiente virtual:
-
-```Bash
-
+# Criar e ativar ambiente virtual
 python -m venv venv
-.\venv\Scripts\activate
-```
-Instale as dependências:
+# Windows
+venv\Scripts\activate
+# Unix/macOS
+source venv/bin/activate
 
-```Bash
-
+# Instalar dependências
 pip install -r requirements.txt
-```
-Execute a aplicação:
 
-```Bash
-
+# Executar a aplicação
 python main.py
-<div align="center"> <h3>📦 Para gerar um novo .exe 📦</h3> </div>
-```
-Use o PyInstaller após instalar as dependências:
-
-```Bash
-
-# Comando para gerar o .exe único e sem console
+Para gerar o executável (.exe no Windows)
+bash
+Copiar código
 pyinstaller --onefile --noconsole --name="AutomacaoHokiSeg" main.py
-# O executável final estará na pasta dist/.
-```
-<div align="center"> <h2>⚙️ Regras de Negócio Implementadas ⚙️</h2> </div>
+O arquivo AutomacaoHokiSeg.exe será criado na pasta dist/.
 
-Este script contém lógicas de negócio específicas para o processo da HokiSeg:
+⚙️ Regras de Negócio Implementadas
+Fonte de dados: extrato analítico de pagamentos de comissões da Porto Seguro (formato PDF).
 
-Fonte de Dados: Extrato Analítico de Pagamentos de Comissões da Porto Seguro (PDF).
+Destino dos dados: planilha Excel (Planilha financeira … .xlsx), aba “Comissão”.
 
-Destino dos Dados: Planilha Excel Planilha financeira ... .xlsx, aba "Comissão".
+Filtro de exclusão: linhas contendo o texto “PIC – Bonus Mensal” são ignoradas.
 
-Filtro de Exclusão: Linhas contendo o texto "PIC - Bonus Mensal" no PDF são completamente ignoradas.
+Mapeamento de colunas (PDF → Excel):
 
-Mapeamento de Colunas: Os dados são inseridos na planilha seguindo este mapeamento (PDF -> Excel):
+Apl/Prop. → Coluna B (Apólice)
 
-Apl/Prop. -> Coluna B (Apólice)
+Prêmio → Coluna C (Valor)
 
-Prêmio -> Coluna C (Valor)
+Histórico → Coluna E (Cliente)
 
-Histórico -> Coluna E (Cliente)
+Marca → Coluna F (Seguradora)
 
-Marca -> Coluna F (Seguradora, com "Porto" -> "Porto Seguro")
+Parcela a Receber (fixo = 12) → Coluna G
 
-Fixo 12 -> Coluna G (Parcela a receber)
+Parc. → Coluna H
 
-Parc. -> Coluna H (Parcela)
+Data → Coluna I (Dt. Pagamento)
 
-Data -> Coluna I (Dt. Pagamento)
+Comissão → Coluna J (Valor Comissão)
 
-Comissão -> Coluna J (Valor Comissão)
+Taxa → Coluna K (Porcentagem)
 
-Taxa -> Coluna K (Porcentagem)
+Fixos (“Pago”, “Vida Presente”, “Calina”) → Colunas L, M, N
 
-Fixos ("Pago", "Vida Presente", "Calina") -> Colunas L, M, N.
+Agrupamento: os dados são agrupados por Cliente + Apólice + Parcela.
 
-Agrupamento: Os dados são agrupados por Cliente, Apólice e Parcela.
+Valor (Prêmio): somado (sum).
 
-Lógica de Agregação:
+Valor Comissão: somado (sum) e arredondado para cima ao centavo.
 
-Valor (Prêmio): É somado (sum).
+Porcentagem (Taxa): prevalece a maior taxa do grupo (max).
 
-Valor Comissão: É somado (sum) e arredondado para cima (math.ceil) ao centavo mais próximo.
+🧩 Estrutura do Projeto
+```bash
+Copiar código
+Atualizador_Planilhas_HokiSeg/
+├── .gitignore           # Ignora arquivos da build, venv, dist etc.
+├── main.py              # Ponto de entrada: inicia a aplicação
+├── ui.py                # Interface gráfica (Tkinter)
+├── processing.py        # Lógica de negócio: pandas, pdfplumber, openpyxl
+└── requirements.txt     # Dependências do projeto
+✅ Contribuições & Melhorias Futuras
+Contribuições são bem-vindas! Algumas ideias para evolução:
 
-Porcentagem (Taxa): A maior taxa (max) do grupo é a que prevalece.
+Suporte a outros formatos de analítico de seguradoras diferentes da Porto Seguro e Amil.
 
-<div align="center"> <h2>📂 Estrutura do Projeto 📂</h2> </div>
+Reconhecimento automático de colunas em PDF com layout variável.
 
-O código é separado por responsabilidades para facilitar a manutenção:
-```
-AutomacaoHokiSeg/
-├── .gitignore         # Ignora arquivos desnecessários (venv, build, dist)
-├── main.py            # Ponto de entrada: Apenas inicia a aplicação
-├── ui.py              # Contém toda a lógica da interface gráfica (Tkinter)
-├── processing.py      # Contém toda a lógica de negócio (Pandas, PdfPlumber, OpenPyXL)
-└── requirements.txt   # Lista de dependências do projeto
-```
-<div align="center">
+Tradução/localização para outros idiomas.
 
-<div align="center">
+Interface web para upload de arquivos e processamento online.
 
-</div>
+Versão multiplataforma (Windows + macOS + Linux) empacotada.
+
